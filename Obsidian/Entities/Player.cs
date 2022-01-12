@@ -268,6 +268,13 @@ public class Player : Living, IPlayer
             await this.client.QueuePacketAsync(new WindowItems(nextId, container.ToList()));
     }
 
+    internal async Task OpenMerchantWindowAsync(List<Trade> trades, EVillagerLevel villagerLevel, int experience, bool isRegularVillager, bool canRestock)
+    {
+        var nextId = this.GetNextContainerId();
+
+        await this.client.QueuePacketAsync(new TradeListPacket(nextId, ((sbyte)trades.Count), trades,villagerLevel,experience,isRegularVillager,canRestock));
+    }
+
     public async Task TeleportAsync(VectorF pos)
     {
         this.LastPosition = this.Position;
