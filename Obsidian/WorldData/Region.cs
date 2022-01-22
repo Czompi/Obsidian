@@ -34,9 +34,9 @@ public class Region
     {
         X = x;
         Z = z;
-        RegionFolder = Path.Join(worldRegionsPath, "regions");
+        RegionFolder = Path.Join(worldRegionsPath, "region");
         Directory.CreateDirectory(RegionFolder);
-        var filePath = Path.Join(RegionFolder, $"{X}.{Z}.mca");
+        var filePath = Path.Join(RegionFolder, $"r.{X}.{Z}.mca");
         regionFile = new RegionFile(filePath, cubicRegionSize);
 
     }
